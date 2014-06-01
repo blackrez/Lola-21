@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lola21 partage ses liens avec #coagul</title>
+    <!-- Bootstrap -->
+    <link href="/stylesheets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/custom.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+  <div class="document">
+
+  	<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">Lola 21</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/stat">Stats</a></li>
+            <li><a href="/help">Aide</a></li>
+          </ul>
+          <form class="navbar-search pull-left" action="/search" method="GET">
+            <input type="text" class="search-query span2" placeholder="Search" name="term">
+            <input type="submit" value="ok">
+          </form>
+          <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">À propos de COAGUL<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://coagul.org/drupal/">Le site de COAGUL</a></li>
+                <li><a href="http://coagul.org/drupal/association/irc">Notre chan IRC</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div>
+    <h1>Liens proposés : </h1>
+    <p>
+   	<% for(var i=0; i<result.length; i++) {%>
+   		<p>
+   			<a href="<%= result[i]['_source']['url'] %>"><%= result[i]['_source']['title'] %></a> - proposé par <a href="/author/<%= result[i]['_source']['user'] %>"><%= result[i]['_source']['user'] %></a>, le <%= result[i]['_source']['date'] %><br>
+   			<span><%= result[i]['_source']['content'] %></span>
+    	
+    <% } %> 
+	</p>
+	<div id="next">
+	</div>
+	</div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/javascripts/infinity.min.js"></script>
+    <script src="/javascripts/underscore-min.js"></script>
+    <script src="/javascripts/backbone-min.js"></script>
+    <script src="/javascripts/load_other.js"></script>
+  </body>
+</html>
