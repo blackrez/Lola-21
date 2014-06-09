@@ -11,14 +11,13 @@ router.get('/', function(req, res) {
   	type: 'link',
   	size: 50,
   	body: {
-  		sort : [{ date : {"order" : "asc"}},],
+  		sort : [{ date : {"order" : "desc"}},],
     	query: {
       		match_all: {}
     	}
   	}
-  }).then( function (response){
-  	console.log(response.hits.hits);
-  	res.render('index', { title: 'Express', result: response.hits.hits});
+  }).then( function (results){
+  	res.render('index', { title: 'Express', result: results.hits.hits});
   })
 });
 
